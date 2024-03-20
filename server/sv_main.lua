@@ -13,7 +13,7 @@ AddEventHandler("onResourceStart", function()
     if ph.check_for_updates == true then
       local currentVersion = ph.version
   
-      PerformHttpRequest("https://api.github.com/repos/Gerrxt07/playersystem/releases/latest", function(responseCode, resultData, resultHeaders)
+      PerformHttpRequest("https://api.github.com/repos/Gerrxt07/ph_playersystem/releases/latest", function(responseCode, resultData, resultHeaders)
         if responseCode == 200 then
           local releaseData = json.decode(resultData)
           local latestVersion = releaseData.tag_name

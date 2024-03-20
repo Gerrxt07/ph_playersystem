@@ -12,10 +12,6 @@ server_scripts {
     'server/sv_*.lua'
 }
 
-client_scripts {
-    'client/cl_*.lua'
-}
-
 shared_scripts {
     '@oxmysql/lib/MySQL.lua', -- Please install the latest version of oxmysql before using this script - Download it here: https://github.com/overextended/oxmysql/releases
     'shared/sh_*.lua'

@@ -8,7 +8,6 @@ function SendWebhook(webhookURL, message)
   end
 end
 
-
 AddEventHandler("onResourceStart", function()
     if ph.check_for_updates == true then
       local currentVersion = ph.version
@@ -64,7 +63,11 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
             MySQL.Async.fetchAll("SELECT admin FROM whitelist WHERE discord_id = @discordid", {
               ["@discordid"] = discordId
           }, function(adminResult)
-              if adminResult[1].admin == "true" then 
+              if adminResult[1].admin == "true" then
+                MySQL.Async.execute("UPDATE whitelist SET ip = @ip WHERE player_name = @playerName", {
+                  ['@ip'] = playerIP,
+                  ['@playerName'] = playerName
+                })
                   print("^2[PH]: " .. GetPlayerName(source) .. " (Admin) " .. Locales[ph.language]['player_joined'])
                   deferrals.done()
               else
@@ -72,6 +75,10 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
               end
           end)
       else
+          MySQL.Async.execute("UPDATE whitelist SET ip = @ip WHERE player_name = @playerName", {
+          ['@ip'] = playerIP,
+          ['@playerName'] = playerName
+            })
             print("^2[PH]: " .. GetPlayerName(source) .. Locales[ph.language]['player_joined'])
             deferrals.done()
           end
@@ -80,7 +87,6 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
         end
     end)
     end
-    -- Check whitelist status
     CheckWhitelist(discordId, deferrals)
   else
       deferrals.done(Locales[ph.language]['player_nodiscord'])

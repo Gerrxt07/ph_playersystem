@@ -1,3 +1,4 @@
+-- Webhook-Funktion zum Senden von Nachrichten an einen Discord-Webhook
 function SendWebhook(webhookURL, message)
   local webhookURL = ph.discordwebhooklog
   if webhookURL ~= "" then
@@ -8,7 +9,9 @@ function SendWebhook(webhookURL, message)
   end
 end
 
+-- Event, der beim Start der Ressource ausgeführt wird
 AddEventHandler("onResourceStart", function()
+  -- Update-Check
     if ph.check_for_updates == true then
       local currentVersion = ph.version
   
@@ -35,11 +38,12 @@ AddEventHandler("onResourceStart", function()
     print(Locales[ph.language]['script_started'])
 end)
 
+-- Wird ausgelöst, wenn ein Spieler versucht sich zu verbinden
 AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
   local source = source
   local identifiers = GetPlayerIdentifiers(source)
   local discordId = nil
-
+  -- Suche nach der Discord-ID des Spielers
   for _, identifier in ipairs(identifiers) do
       if string.find(identifier, "discord:") then
           discordId = string.sub(identifier, 9)
@@ -48,33 +52,35 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
   end
 
   if discordId then
-    deferrals.defer()
+    deferrals.defer() -- Verbindung pausieren
     local playerName = GetPlayerName(source)
     local playerIP = GetPlayerEndpoint(source)
-
+    -- Prüft, ob der Spieler auf der Whitelist steht (innerhalb einer Funktion, um die Whitelist-Überprüfung zu kapseln)
     local function CheckWhitelist(discordId, deferrals)
         MySQL.Async.fetchAll("SELECT * FROM whitelist WHERE discord_id = @discordId AND player_name = @playerName", {
             ["@discordId"] = discordId,
             ["@playerName"] = playerName 
         }, function(result)
-
+          -- Wenn der Spieler gefunden wurde:
         if result and #result > 0 then
-          if ph.maintenance == true then
+          if ph.maintenance == true then -- Wenn Wartungsmodus aktiv ist
             MySQL.Async.fetchAll("SELECT admin FROM whitelist WHERE discord_id = @discordid", {
               ["@discordid"] = discordId
-          }, function(adminResult)
-              if adminResult[1].admin == "true" then
+          }, function(adminResult) -- Prüfen, ob Spieler Admin-Rechte hat
+              if adminResult[1].admin == "true" then -- Wenn Spieler Admin ist
+                -- IP in Whitelist aktualisieren und Spieler verbinden lassen
                 MySQL.Async.execute("UPDATE whitelist SET ip = @ip WHERE player_name = @playerName", {
                   ['@ip'] = playerIP,
                   ['@playerName'] = playerName
                 })
                   print("^2[PH]: " .. GetPlayerName(source) .. " (Admin) " .. Locales[ph.language]['player_joined'])
                   deferrals.done()
-              else
+              else -- Wenn Spieler kein Admin ist
                   deferrals.done(Locales[ph.language]['maintenance_mode'])
               end
           end)
-      else
+      else -- Wenn Wartungsmodus nicht aktiv
+        -- IP aktualisieren und Spieler normal verbinden lassen
           MySQL.Async.execute("UPDATE whitelist SET ip = @ip WHERE player_name = @playerName", {
           ['@ip'] = playerIP,
           ['@playerName'] = playerName
@@ -82,7 +88,7 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
             print("^2[PH]: " .. GetPlayerName(source) .. Locales[ph.language]['player_joined'])
             deferrals.done()
           end
-        else
+        else -- Wenn Spieler nicht gefunden wurde
             deferrals.done(Locales[ph.language]['player_notwhitelisted'])
         end
     end)

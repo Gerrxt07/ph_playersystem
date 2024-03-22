@@ -1,5 +1,4 @@
 This script is actually made for a German server but is tested from scratch in English. Other languages like Spanish, French or Russian have been translated by a translator (DeepL) and I do not provide official support for them. I also do not provide support for code changes. If you would like to contribute, please contact me via ticket in Discord.
-
 Stand: 20.03.2024
 
 - Checkt nach Updates auf GitHub
@@ -8,8 +7,12 @@ Stand: 20.03.2024
 
 Todo's:
 
-- Warteschlange; Ein nach anderem, jede 10 Sekunden. Falls voll Warten auf freien Platz.
+Server:
+
+- Warteschlange; Ein nach anderem, jede 10 Sekunden. Falls Server voll Warten auf freien Platz.
 - VPN Check
 
-- Console Ban Player Command
-- Console Add Player Command
+Client:
+
+- Ban Player Command
+- Add Player Command

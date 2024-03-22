@@ -7,6 +7,7 @@ Locales = {
         ['player_notwhitelisted'] = 'You are not registered on the server.',
         ['player_nodiscord'] = 'You must have Discord open to access the server.',
         ['maintenance_mode'] = 'The server has activated maintenance mode.',
+        ['vpn_detected'] = 'You have a VPN on or are not from the DACH region.',
     },
     ['de'] = {
         ['new_update'] = '^3[PH]: Es gibt eine neue Version des Player Systems. Bitte lade die neuste Version hier herunter: https://github.com/Gerrxt07/playersystem/releases/latest',
@@ -16,6 +17,7 @@ Locales = {
         ['player_notwhitelisted'] = 'Du bist hier nicht auf dem Server registriert.',
         ['player_nodiscord'] = 'Du musst Discord geöffnet haben, um auf den Server betreten zu können.',
         ['maintenance_mode'] = 'Der Server hat den Wartungsmodus aktiviert.',
+        ['vpn_detected'] = 'Du hast einen VPN an oder bist nicht aus dem DACH Gebiet.',
     },
     ['es'] = {
         ['new_update'] = '^3[PH]: Hay una nueva versión del sistema de jugadores. Descargue la última versión aquí: https://github.com/Gerrxt07/playersystem/releases/latest',
@@ -25,6 +27,7 @@ Locales = {
         ['player_notwhitelisted'] = 'No estás registrado en el servidor.',
         ['player_nodiscord'] = 'Debes tener Discord abierto para acceder al servidor.',
         ['maintenance_mode'] = 'El servidor ha activado el modo de mantenimiento.',
+        ['vpn_detected'] = 'Tiene una VPN activada o no es de la región DACH.',
     },
     ['fr'] = {
         ['new_update'] = '^3[PH]: Il existe une nouvelle version du système de lecture. Veuillez télécharger la dernière version ici: https://github.com/Gerrxt07/playersystem/releases/latest',
@@ -34,6 +37,7 @@ Locales = {
         ['player_notwhitelisted'] = 'Tu n\'es pas enregistré sur le serveur ici.',
         ['player_nodiscord'] = 'Tu dois avoir ouvert Discord pour pouvoir accéder au serveur.',
         ['maintenance_mode'] = 'Le serveur a activé le mode de maintenance.',
+        ['vpn_detected'] = 'Tu as un VPN ou tu ne viens pas de la région DACH.',
     },
     ['ru'] = {
         ['new_update'] = '^3[PH]:  Доступна новая версия системы игроков. Пожалуйста, скачайте последнюю версию здесь: https://github.com/Gerrxt07/playersystem/releases/latest',
@@ -43,5 +47,6 @@ Locales = {
         ['player_notwhitelisted'] = 'Вы не зарегистрированы на сервере.',
         ['player_nodiscord'] = 'У вас должен быть открыт Discord для доступа к серверу.',
         ['maintenance_mode'] = 'На сервере активирован режим обслуживания.',
+        ['vpn_detected'] = 'У вас включен VPN или вы не из региона DACH.',
     }
   }

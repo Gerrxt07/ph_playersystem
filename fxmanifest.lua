@@ -5,7 +5,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'Gerrxt'
-description 'Phantomscripts Playersystem'
+description 'Phantomscripts System'
 version 'alpha-0.0.1'
 
 client_scripts {

@@ -36,6 +36,8 @@ CREATE TABLE IF NOT EXISTS `char` (
   `name` VARCHAR(255) NOT NULL, -- Name of the character
   `birthday` VARCHAR(255) NOT NULL, -- Birthday of the character
   `job` VARCHAR(50) NOT NULL, -- Job of the character
+  `phone_number` INT(11) NOT NULL, -- Phone number of the character
   PRIMARY KEY (`character_id`), -- Primary key of the table
-  UNIQUE KEY `character_id` (`character_id`) -- The Character ID is unique
+  UNIQUE KEY `character_id` (`character_id`), -- The Character ID is unique
+  UNIQUE KEY `phone_number` (`phone_number`) -- The Phone Number is unique
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

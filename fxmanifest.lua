@@ -8,6 +8,10 @@ author 'Gerrxt'
 description 'Phantomscripts Playersystem'
 version 'alpha-0.0.1'
 
+client_scripts {
+    'client/cl_*.lua'
+}
+
 server_scripts {
     'server/sv_*.lua'
 }

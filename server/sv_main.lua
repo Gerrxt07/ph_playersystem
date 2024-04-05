@@ -57,14 +57,14 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
     local playerIP = GetPlayerEndpoint(source)
     -- Prüft, ob der Spieler auf der Whitelist steht (innerhalb einer Funktion, um die Whitelist-Überprüfung zu kapseln)
     local function CheckWhitelist(discordId, deferrals)
-        MySQL.Async.fetchAll("SELECT * FROM user WHERE discord_id = @discordId AND player_name = @playerName", {
+        MySQL.Async.fetchAll("SELECT * FROM phuser WHERE discord_id = @discordId AND player_name = @playerName", {
             ["@discordId"] = discordId,
             ["@playerName"] = playerName 
         }, function(result)
           -- Wenn der Spieler gefunden wurde:
         if result and #result > 0 then
           if ph.maintenance == true then -- Wenn Wartungsmodus aktiv ist
-            MySQL.Async.fetchAll("SELECT admin FROM user WHERE discord_id = @discordid", {
+            MySQL.Async.fetchAll("SELECT admin FROM phuser WHERE discord_id = @discordid", {
               ["@discordid"] = discordId
           }, function(adminResult) -- Prüfen, ob Spieler Admin-Rechte hat
               if adminResult[1].admin == "true" then -- Wenn Spieler Admin ist
@@ -76,7 +76,7 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
           end)
       else -- Wenn Wartungsmodus nicht aktiv
         -- IP aktualisieren und Spieler normal verbinden lassen
-          MySQL.Async.execute("UPDATE user SET ip = @ip WHERE player_name = @playerName", {
+          MySQL.Async.execute("UPDATE phuser SET ip = @ip WHERE player_name = @playerName", {
           ['@ip'] = playerIP,
           ['@playerName'] = playerName
             })

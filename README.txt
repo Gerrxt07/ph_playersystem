@@ -10,8 +10,13 @@ Phantom Gaming - Custom System
 Todo's:
 
 Whitelist System:
+
+DATABASE:
+
+Add latest player ingame id to player DB
 Server-Side:
 
+- Aktuelle Ingame ID in DB hinzufügen bei join
 - Warteschlange; Ein nach anderem, jede 10 Sekunden. Falls Server voll Warten auf freien Platz.
 - VPN Check
 

@@ -70,11 +70,6 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
               if adminResult[1].admin == "true" then -- Wenn Spieler Admin ist
                   print("^2[PH]: " .. GetPlayerName(source) .. " (Admin) " .. Locales[ph.language]['player_joined'])
                   deferrals.done()
-                  local PlayerIngameID = GetPlayerServerId(source)
-                  MySQL.Async.execute("UPDATE phuser SET ingame_id = @ingameId WHERE player_name = @playerName", {
-                   ['@ingameId'] = PlayerIngameID,
-                   ['@playerName'] = playerName
-                  })
               else -- Wenn Spieler kein Admin ist
                   deferrals.done(Locales[ph.language]['maintenance_mode'])
               end
@@ -104,11 +99,6 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
             })
             print("^2[PH]: " .. GetPlayerName(source) .. Locales[ph.language]['player_joined'] .. " (IP: " .. playerIP .. ")")
             deferrals.done()
-            local PlayerIngameID = GetPlayerServerId(source)
-            MySQL.Async.execute("UPDATE phuser SET ingame_id = @ingameId WHERE player_name = @playerName", {
-              ['@ingameId'] = PlayerIngameID,
-              ['@playerName'] = playerName
-            })
           end
         else -- Wenn Spieler nicht gefunden wurde
             print("^1[PH]: " .. GetPlayerName(source) .. Locales[ph.language]['player_triedjoin'] .. " (IP: " .. playerIP .. ", Discord: " .. discordId .. ")")

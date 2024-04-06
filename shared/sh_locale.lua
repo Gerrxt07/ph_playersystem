@@ -9,11 +9,11 @@ Locales = {
         ['maintenance_mode'] = 'The server has activated maintenance mode.',
         ['vpn_detected'] = 'You have a VPN on or are not from the DACH region.',
 
-        ['player_banned'] = 'You get banned on this server.',
-        ['player_hasbeenbanned'] = 'get banned from the server.',
         ['command_playernotfound'] = 'This player has not been found.',
         ['command_invalidargument'] = 'This command has been entered incorrectly.',
         ['command_notadmin'] = 'You are not an admin.',
+
+        ['cl_cmd_id'] = 'Your ID is: ',
     },
     ['de'] = {
         ['new_update'] = '^3[PH]: Es gibt eine neue Version des Player Systems. Bitte lade die neuste Version hier herunter: https://github.com/Gerrxt07/playersystem/releases/latest',
@@ -25,11 +25,11 @@ Locales = {
         ['maintenance_mode'] = 'Der Server hat den Wartungsmodus aktiviert.',
         ['vpn_detected'] = 'Du hast einen VPN an oder bist nicht aus dem DACH Gebiet.',
 
-        ['player_banned'] = 'Du wurdest auf dem Server gebannt.',
-        ['player_hasbeenbanned'] = 'wurde soebend von dem Server gebannt.',
         ['command_playernotfound'] = 'Der Spieler wurde nicht gefunden.',
         ['command_invalidargument'] = 'Der Befehl wurde falsch eingegeben.',
         ['command_notadmin'] = 'Du bist kein Admin.',
+
+        ['cl_cmd_id'] = '^2[PH]: Deine ID ist: ',
     },
     ['es'] = {
         ['new_update'] = '^3[PH]: Hay una nueva versión del sistema de jugadores. Descargue la última versión aquí: https://github.com/Gerrxt07/playersystem/releases/latest',
@@ -41,11 +41,11 @@ Locales = {
         ['maintenance_mode'] = 'El servidor ha activado el modo de mantenimiento.',
         ['vpn_detected'] = 'Tiene una VPN activada o no es de la región DACH.',
 
-        ['player_banned'] = 'Has sido expulsado del servidor.',
-        ['player_hasbeenbanned'] = 'ha sido expulsado del servidor.',
         ['command_playernotfound'] = 'No se ha encontrado al jugador.',
         ['command_invalidargument'] = 'El comando se ha introducido incorrectamente.',
         ['command_notadmin'] = 'Usted no es administrador.',
+
+        ['cl_cmd_id'] = '^2[PH]: Tu ID es: ',
     },
     ['fr'] = {
         ['new_update'] = '^3[PH]: Il existe une nouvelle version du système de lecture. Veuillez télécharger la dernière version ici: https://github.com/Gerrxt07/playersystem/releases/latest',
@@ -57,11 +57,11 @@ Locales = {
         ['maintenance_mode'] = 'Le serveur a activé le mode de maintenance.',
         ['vpn_detected'] = 'Tu as un VPN ou tu ne viens pas de la région DACH.',
 
-        ['player_banned'] = 'Tu as été banni du serveur.',
-        ['player_hasbeenbanned'] = 'a été banni du serveur.',
         ['command_playernotfound'] = 'Le joueur n\'a pas été retrouvé.',
         ['command_invalidargument'] = 'La commande a été saisie de manière incorrecte.',
         ['command_notadmin'] = 'Vous n\'êtes pas administrateur.',
+
+        ['cl_cmd_id'] = '^2[PH]: Votre ID est: ',
     },
     ['ru'] = {
         ['new_update'] = '^3[PH]:  Доступна новая версия системы игроков. Пожалуйста, скачайте последнюю версию здесь: https://github.com/Gerrxt07/playersystem/releases/latest',
@@ -73,10 +73,10 @@ Locales = {
         ['maintenance_mode'] = 'На сервере активирован режим обслуживания.',
         ['vpn_detected'] = 'У вас включен VPN или вы не из региона DACH.',
 
-        ['player_banned'] = 'Вы были заблокированы на сервере.',
-        ['player_hasbeenbanned'] = 'был заблокирован на сервере.',
         ['command_playernotfound'] = 'Игрок не найден.',
         ['command_invalidargument'] = 'Команда была введена неверно.',
         ['command_notadmin'] = 'Вы не являетесь администратором.',
+
+        ['cl_cmd_id'] = '^2[PH]: Ваш ID: ',
     }
   }

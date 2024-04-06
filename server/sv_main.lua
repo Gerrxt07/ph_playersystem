@@ -69,13 +69,12 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
           }, function(adminResult) -- Prüfen, ob Spieler Admin-Rechte hat
               if adminResult[1].admin == "true" then -- Wenn Spieler Admin ist
                   print("^2[PH]: " .. GetPlayerName(source) .. " (Admin) " .. Locales[ph.language]['player_joined'])
-                   -- UPDATE INGAME ID (Place this within the section after the player is deemed whitelisted)
+                  deferrals.done()
                   local PlayerIngameID = GetPlayerServerId(source)
                   MySQL.Async.execute("UPDATE phuser SET ingame_id = @ingameId WHERE player_name = @playerName", {
                    ['@ingameId'] = PlayerIngameID,
                    ['@playerName'] = playerName
                   })
-                  deferrals.done()
               else -- Wenn Spieler kein Admin ist
                   deferrals.done(Locales[ph.language]['maintenance_mode'])
               end
@@ -104,12 +103,12 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
           ['@playerName'] = playerName
             })
             print("^2[PH]: " .. GetPlayerName(source) .. Locales[ph.language]['player_joined'] .. " (IP: " .. playerIP .. ")")
+            deferrals.done()
             local PlayerIngameID = GetPlayerServerId(source)
             MySQL.Async.execute("UPDATE phuser SET ingame_id = @ingameId WHERE player_name = @playerName", {
               ['@ingameId'] = PlayerIngameID,
               ['@playerName'] = playerName
             })
-            deferrals.done()
           end
         else -- Wenn Spieler nicht gefunden wurde
             print("^1[PH]: " .. GetPlayerName(source) .. Locales[ph.language]['player_triedjoin'] .. " (IP: " .. playerIP .. ", Discord: " .. discordId .. ")")

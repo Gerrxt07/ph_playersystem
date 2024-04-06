@@ -6,4 +6,6 @@ ph.maintenance = false -- Set to false by default. If set to true, only database
 ph.language = "en" -- Set to "en" by default. Available languages: en (English), de (German), es (Spanish), fr (French), ru (Russian).
 ph.logging = true -- Set to true by default. If set to true, all actions will be logged in the console.
 
+ph.vpncheck = false -- Set to false by default. If set to true, players with a VPN connection will be kicked. Not 100% accurate.
+
 ph.discordwebhooklog = "" -- Set to "" by default. If set to "", the webhook will be disabled. Only working if logging is true.

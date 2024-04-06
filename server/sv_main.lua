@@ -75,6 +75,22 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
               end
           end)
       else -- Wenn Wartungsmodus nicht aktiv
+        
+        -- // VPN CHECK // --
+
+        if ph.vpncheck == true then
+          PerformHttpRequest("http://ip-api.com/json/" .. playerIP, function(errorCode, resultData, resultHeaders)
+            if errorCode == 200 then
+              local result = json.decode(resultData)
+              if result.proxy == true then
+                print("^1[PH]: " .. GetPlayerName(source) .. Locales[ph.language]['player_triedjoin'] .. " (IP: " .. playerIP .. ", Discord: " .. discordId .. ")")
+                deferrals.done(Locales[ph.language]['vpn_detected'])
+                return
+              end
+            end
+          end)
+        end
+
         -- IP aktualisieren und Spieler normal verbinden lassen
           MySQL.Async.execute("UPDATE phuser SET ip = @ip WHERE player_name = @playerName", {
           ['@ip'] = playerIP,

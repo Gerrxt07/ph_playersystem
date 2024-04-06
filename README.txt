@@ -4,12 +4,13 @@ This script is actually made for a German server but is tested from scratch in E
 
 DEV THINGS ON GERMAN:
 
-Stand: 04.04.2024
+Stand: 06.04.2024
 
 Phantom Gaming - Custom System
 
 - Checkt nach Updates auf GitHub
 - Sucht bei Connect in Datenbank nach Name und Discord ID (Whitelist)
+- VPN Check bei Spieler die in der Datenbank stehen um abfragen zu minimieren
 - Updatet IP des Spielers bei jedem Join
 
 
@@ -18,15 +19,11 @@ Todo's:
 
 Whitelist System:
 
-DATABASE:
+    DATABASE:
+        - Aktuelle Ingame ID in DB hinzufügen bei join
 
-Server-Side:
+    Server-Side:
+        - Warteschlange; Ein nach anderem, jede 10 Sekunden. Falls Server voll Warten auf freien Platz.
 
-- Aktuelle Ingame ID in DB hinzufügen bei join
-- Warteschlange; Ein nach anderem, jede 10 Sekunden. Falls Server voll Warten auf freien Platz.
-- VPN Check
-
-Client-Side:
-
-- Ban Player Command
-
+    Client-Side:
+        - Ban Player Command

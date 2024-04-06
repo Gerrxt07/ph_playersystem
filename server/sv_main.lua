@@ -85,7 +85,7 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
           end
         else -- Wenn Spieler nicht gefunden wurde
             deferrals.done(Locales[ph.language]['player_notwhitelisted'])
-            print("^1[PH]: " .. GetPlayerName(source) .. Locales[ph.language]['player_triedjoin'] .. " (IP: " .. playerIP .. ")")
+            print("^1[PH]: " .. GetPlayerName(source) .. Locales[ph.language]['player_triedjoin'])
         end
     end)
     end

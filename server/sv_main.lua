@@ -80,11 +80,12 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
           ['@ip'] = playerIP,
           ['@playerName'] = playerName
             })
-            print("^2[PH]: " .. GetPlayerName(source) .. Locales[ph.language]['player_joined'])
+            print("^2[PH]: " .. GetPlayerName(source) .. Locales[ph.language]['player_joined'] .. " (IP: " .. playerIP .. ")")
             deferrals.done()
           end
         else -- Wenn Spieler nicht gefunden wurde
             deferrals.done(Locales[ph.language]['player_notwhitelisted'])
+            print("^1[PH]: " .. GetPlayerName(source) .. Locales[ph.language]['player_triedjoin'] .. " (IP: " .. playerIP .. " Discord: " .. discordId .. ")")
         end
     end)
     end

@@ -77,11 +77,14 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
       else -- Wenn Wartungsmodus nicht aktiv
         
         -- // VPN CHECK // --
-
+        print("before vpn check")
         if ph.vpncheck == true then
+          print("vpn check")
           PerformHttpRequest("http://ip-api.com/json/" .. playerIP, function(errorCode, resultData, resultHeaders)
             if errorCode == 200 then
+              print("after vpn check")
               local result = json.decode(resultData)
+              print(result.proxy)
               if result.proxy == true then
                 print("^1[PH]: " .. GetPlayerName(source) .. Locales[ph.language]['player_triedjoin'] .. " (IP: " .. playerIP .. ", Discord: " .. discordId .. ")")
                 deferrals.done(Locales[ph.language]['vpn_detected'])

@@ -80,19 +80,23 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
         print("before vpn check")
         if ph.vpncheck == true then
           print("vpn check")
-          PerformHttpRequest("http://ip-api.com/json/" .. playerIP, function(errorCode, resultData, resultHeaders)
+          PerformHttpRequest("https://ip-api.com/json/" .. playerIP, function(errorCode, resultData, resultHeaders)
             if errorCode == 200 then
               print("after vpn check")
               local result = json.decode(resultData)
-              print(result.proxy)
+              print(resultData)
               if result.proxy == true then
                 print("^1[PH]: " .. GetPlayerName(source) .. Locales[ph.language]['player_triedjoin'] .. " (IP: " .. playerIP .. ", Discord: " .. discordId .. ")")
                 deferrals.done(Locales[ph.language]['vpn_detected'])
                 return
               end
-            end
+            else
+              -- Handle other error codes from the API here
+              print("Error while checking VPN status. Error code: ", errorCode)
+          end
           end)
         end
+        deferrals.done("test")
 
         -- IP aktualisieren und Spieler normal verbinden lassen
           MySQL.Async.execute("UPDATE phuser SET ip = @ip WHERE player_name = @playerName", {

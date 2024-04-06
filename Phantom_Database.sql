@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS `phuser` (
   `player_name` VARCHAR(255) DEFAULT NULL, -- FiveM account name
   `discord_id` VARCHAR(255) DEFAULT NULL, -- Discord account ID
   `ip` VARCHAR(255) DEFAULT NULL,  -- IP address of the user (last known)
+  `ingame_id` VARCHAR(3) DEFAULT NULL,  -- Ingame ID of the user (last known)
   `admin` VARCHAR(8) NOT NULL DEFAULT 'false', -- Admin status (true/false)
   PRIMARY KEY (`player_id`), -- Primary key of the table
   UNIQUE KEY `discord_id` (`discord_id`) -- Unique key for the Discord ID
